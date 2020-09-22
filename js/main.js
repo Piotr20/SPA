@@ -23,6 +23,8 @@ function goMap() {
     document.getElementById('details-going-up').style.top = '100vh';
 }
 
+
+
 //toggle button
 // source: https: //www.w3schools.com/howto/howto_js_toggle_hide_show.asp
 
