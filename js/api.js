@@ -101,6 +101,38 @@
 
 
 
+
+ //display of details after clicking on location in the map
+
+
+ let pin = document.getElementsByClassName('mapboxgl-marker');
+ let pinLength = pin.length;
+ let popup = document.getElementById("details-going-up");
+
+
+
+
+
+
+
+
+
+
+ let popupFunction = function () {
+      popup.style.top = 'calc(100vh - 100px - 40vh)';
+ };
+ let popupGone = function () {
+      popup.style.top = '100vh';
+ };
+ for (var i = 0; i < pinLength; i++) {
+      pin[i].addEventListener('click', popupFunction, false);
+ }
+ /*
+  for (var i = 0; i < pinLength; i++) {
+       pin[i].addEventListener('blur', popupGone, false); 
+  }
+ */
+
  //source of live forecast api
  var settings = {
       "url": "https://besttime.app/api/v1/forecasts/live?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
@@ -250,13 +282,13 @@
       let places = data.places;
       appendPlaces(places);
  }
+ fetchVenues();
 
  function appendPlaces(places) {
       let htmlTemplate = "";
       for (let place of places) {
            let name = place.venue_name;
            let adress = place.venue_address;
-
 
            htmlTemplate += /*html*/
                 `
@@ -268,7 +300,35 @@
       }
       document.querySelector(".venue_container").innerHTML = htmlTemplate;
  }
- fetchVenues();
+
+ //  function goToPins(places, pinList, map, searchContainer) {
+ //       for (let i = 0; i < 23; i++) {
+ //            places[i].addEventListener("click", () => {
+ //                 map.flyTo({
+ //                      center: [10.20594, 56.1065844],
+ //                      speed: 0.2
+ //                 });
+ //                 searchContainer.style.display = 'none';
+ //            })
+ //       }
+ //  }
+
+ function search(value) {
+      console.log(value);
+      let filteredPlaces = [];
+      for (let place of places) {
+           let name = place.venue_name.toLowerCase();
+           if (name.includes(value.toLowerCase())) {
+                filteredPlaces.push(place);
+           }
+      }
+
+      console.log(filteredPlaces);
+      appendPlaces(filteredPlaces);
+ }
+
+
+
 
  const searchContainer = document.querySelector('.search_container');
  const searchBar = document.querySelector('#home>input');
@@ -280,3 +340,7 @@
  xIcon.addEventListener('click', () => {
       searchContainer.style.display = 'none';
  })
+ document.querySelector(".mapboxgl-ctrl-logo").style.display = 'none';
+
+
+ var pinList = document.querySelectorAll('.mapboxgl-marker');
