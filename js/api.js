@@ -275,15 +275,19 @@
 
  });
  let _places = [];
+
  async function fetchVenues() {
       let url = `JSON/placelist.json`;
       let response = await fetch(url); // fetch and wait the response
       let data = await response.json(); // read response body and wait for parsing the JSON
       _places = data.places;
-      let coords = _places.coords;
       appendPlaces(_places);
+      appendMarkers();
  }
  fetchVenues();
+
+
+
 
  function appendPlaces(places) {
       let htmlTemplate = "";
@@ -293,7 +297,7 @@
 
            htmlTemplate += /*html*/
                 `
-         <li onclick = "showPlace('${place.vanue_name}')"> 
+         <li onclick="showPlace('${place.venue_name}')"> 
           <h3>${name}</h3>
            <p> ${adress}</p>
          </li>
@@ -305,23 +309,21 @@
  function showPlace(name) {
       console.log(name);
       let placeToShow = getPlace(name);
-      console.log(placeToShow);
+      // do what you want to do with "placeToShow" 😊
+      hideSearch();
+      map.flyTo({
+           center: placeToShow.coords,
+           zoom: 15
+      });
  }
 
  function getPlace(name) {
       return _places.find(place => place.venue_name === name);
  }
- //  function goToPins(places, pinList, map, searchContainer) {
- //       for (let i = 0; i < 23; i++) {
- //            places[i].addEventListener("click", () => {
- //                 map.flyTo({
- //                      center: [10.20594, 56.1065844],
- //                      speed: 0.2
- //                 });
- //                 searchContainer.style.display = 'none';
- //            })
- //       }
- //  }
+
+ function hideSearch() {
+      searchContainer.style.display = 'none';
+ }
 
  function search(value) {
       console.log(value);
