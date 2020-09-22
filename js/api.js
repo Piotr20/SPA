@@ -355,24 +355,26 @@
 
  var pinList = document.querySelectorAll('.mapboxgl-marker');
 
- let favPlaces = [];
+ let _favPlaces = [];
 
- function appendfavPlaces(places) {
-      let htmlTemplate = "";
-      for (let place of places) {
-           let name = place.venue_name;
-           let adress = place.venue_address;
-           if (toggleBG2.style.background = "#27d07d") {
-                favPlaces.push(place);
-           }
-
-           htmlTemplate += /*html*/
-                `
-         <li> 
-          <h3>${name}</h3>
-           <p> ${adress}</p>
-         </li>
-       `;
+ function appendFavPlaces() {
+      let html = "";
+      for (const place of _favPlaces) {
+           console.log(place);
+           html += `
+           <li>
+          <h1>${name}</h1>
+          <p>${adress}</p>
+          </li>
+          `;
       }
-      document.querySelector(".favourites_container").innerHTML = htmlTemplate;
+      document.querySelector("#fav-movie-container").innerHTML = html;
+ }
+
+ function addToFavourites(placeId) {
+      let favPlace = _places.find(place => place.id === placeId);
+      if (toggleBG2.style.background = "#27d07d");
+      _favPlaces.push(favPlace);
+      appendPlaces(_places);
+      appendFavPlaces();
  }
