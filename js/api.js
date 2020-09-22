@@ -344,3 +344,25 @@
 
 
  var pinList = document.querySelectorAll('.mapboxgl-marker');
+
+ let favPlaces = [];
+
+ function appendfavPlaces(places) {
+      let htmlTemplate = "";
+      for (let place of places) {
+           let name = place.venue_name;
+           let adress = place.venue_address;
+           if (toggleBG2.style.background = "#27d07d") {
+                favPlaces.push(place);
+           }
+
+           htmlTemplate += /*html*/
+                `
+         <li> 
+          <h3>${name}</h3>
+           <p> ${adress}</p>
+         </li>
+       `;
+      }
+      document.querySelector(".favourites_container").innerHTML = htmlTemplate;
+ }
