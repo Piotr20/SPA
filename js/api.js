@@ -7,136 +7,17 @@
       zoom: 14.0
  });
 
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.1997, 56.153876])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.154715, 56.1169118])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.206206, 56.1522238])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.158464, 56.131849])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2058314, 56.1589012])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2039354, 56.149292])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.1545136, 56.1162944])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.1515312, 56.1158134])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.153506, 56.117881])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.151844, 56.116578])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.1535593, 56.1161758])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.1533807, 56.1162376])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.223459, 56.088694])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.1917731, 56.1589859])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.20594, 56.1065844])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2093286, 56.1586684])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2050017, 56.1490821])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2059281, 56.1513159])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.20594, 56.1528602])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.191969, 56.157934])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2071004, 56.1554225])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2063694, 56.1560452])
-      .addTo(map);
-
- var marker = new mapboxgl.Marker()
-      .setLngLat([10.2031852, 56.1538878])
-      .addTo(map);
-
 
 
 
  //display of details after clicking on location in the map
 
 
-<<<<<<< HEAD
-=======
- let pin = document.getElementsByClassName('mapboxgl-marker');
- let pinLength = pin.length;
- let parent = document.getElementsByClassName('mapboxgl-canvas-container');
- //let index = parent + ':nth-child(' + i + ')';
- let popup = document.getElementById("details-going-up");
-
-
- let popupFunction = function () {
-      popup.style.top = 'calc(100vh - 100px - 40vh)';
-
- };
- let popupGone = function () {
-      popup.style.top = '100vh';
- };
-
- for (var i = 0; i < pinLength; i++) {
-      console.log(i);
-      pin[i].addEventListener('click', popupFunction, false);
-
- }
-
- pin[i].addEventListener('blur', popupGone, false);
-
-
->>>>>>> 46cf540ce6fc94216637f9d0dac4f6def2d6e16a
 
  //source of live forecast api
- var settings = {
-      "url": "https://besttime.app/api/v1/forecasts/live?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
 
+ var settings = {
+      "url": "https://besttime.app/api/v1/forecasts?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
       "data": {
            'api_key_private': 'pri_0bc6ad2618fe4bb0b9092c84f41b3010',
            'venue_name': 'ARoS Aarhus Art Museum',
@@ -144,7 +25,6 @@
       },
       "method": "POST"
  };
-
  $.ajax(settings).done(function (response) {
       console.log(response);
 
@@ -201,8 +81,31 @@
 
 
       }
- })
+ });
+
  //Peter's code
+ function popupFunction(event) {
+      popup.style.top = 'calc(100vh - 100px - 40vh)';
+      let title = document.querySelector('.fetch-title');
+      let subtitle = document.querySelector('.fetch-subtitle');
+      let pin = event.currentTarget;
+
+      //after click get proper data
+      title.innerHTML = pin.placeData.venue_name;
+      subtitle.innerHTML = pin.placeData.venue_address;
+      var settings = {
+           "url": "https://besttime.app/api/v1/forecasts/live?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
+
+           "data": {
+                'api_key_private': 'pri_0bc6ad2618fe4bb0b9092c84f41b3010',
+                'venue_name': pin.placeData.venue_name,
+                'venue_address': pin.placeData.venue_address
+           },
+           "method": "POST"
+      };
+      //this function should set up the graphs and stuff
+      getVenueCrowdData(settings);
+ };
 
  var settings = {
       "url": "https://besttime.app/api/v1/forecasts?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
@@ -214,6 +117,11 @@
       "method": "POST"
  };
  //getting data from above venue
+ function getVenueCrowdData(settings) {
+      $.ajax(settings).done(function (response) {
+           //set up the grapsh here
+      });
+ }
  $.ajax(settings).done(function (response) {
       console.log(response);
       let data = response;
@@ -274,10 +182,11 @@
       }
 
  });
+
  let _places = [];
 
  async function fetchVenues() {
-      let url = `JSON/placelist.json`;
+      let url = 'https://piotr20.github.io/SPA/JSON/placelist.json' //`JSON/placelist.json`;
       let response = await fetch(url); // fetch and wait the response
       let data = await response.json(); // read response body and wait for parsing the JSON
       _places = data.places;
@@ -293,17 +202,30 @@
       for (let place of places) {
            let name = place.venue_name;
            let adress = place.venue_address;
-           popupFunction(name, adress);
+           //popupFunction(name, adress);
 
            htmlTemplate += /*html*/
                 `
-         <li onclick="showPlace('${place.venue_name}')"> 
+         <li onclick="showPlace('${place.venue_name}')">
           <h3>${name}</h3>
            <p> ${adress}</p>
          </li>
        `;
+           //create map marker
+           var marker = new mapboxgl.Marker()
+                .setLngLat(place.coords)
+                .addTo(map);
+           var markerElement = marker.getElement();
+           markerElement.placeData = place;
       }
+      //add the completed list to the search bar suggestions
       document.querySelector(".venue_container").innerHTML = htmlTemplate;
+      //set up the click handlers for added map markers
+      var pinList = document.querySelectorAll('.mapboxgl-marker');
+      for (var i = 0; i < pinList.length; i++) {
+           pinList[i].addEventListener('click', popupFunction, false);
+      }
+
  }
 
  function showPlace(name) {
@@ -355,6 +277,7 @@
  document.querySelector(".mapboxgl-ctrl-logo").style.display = 'none';
 
 
+
  let pin = document.getElementsByClassName('mapboxgl-marker');
  let pinLength = pin.length;
  let popup = document.getElementById("details-going-up");
@@ -367,34 +290,16 @@
  //      return _places.find(place => place.venue_name === name);
  // }
 
- var pinList = document.querySelectorAll('.mapboxgl-marker');
 
 
 
- function popupFunction(name, adress) {
-      popup.style.top = 'calc(100vh - 100px - 40vh)';
-      let title = document.querySelector('.fetch-title');
-      let subtitle = document.querySelector('.fetch-subtitle');
-
-      for (let i = 0; i < pinLength; i++) {
-           pinList[i].addEventListener("click", () => {
-                console.log();
-
-                title.innerHTML = name;
-                subtitle.innerHTML = adress
-
-           })
-      }
- };
  let popupGone = function () {
       popup.style.top = '100vh';
  };
- for (var i = 0; i < pinLength; i++) {
-      pin[i].addEventListener('click', popupFunction(), false);
- }
+
  /*
   for (var i = 0; i < pinLength; i++) {
-       pin[i].addEventListener('blur', popupGone, false); 
+       pin[i].addEventListener('blur', popupGone, false);
   }
  */
  var pinList = document.querySelectorAll('.mapboxgl-marker');
