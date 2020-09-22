@@ -20,7 +20,7 @@ function goDetails() {
 }
 
 function goMap() {
-    document.getElementById('details-going-up').style.top = 'calc(100vh - 100px - 40vh)';
+    document.getElementById('details-going-up').style.top = '100vh';
 }
 
 //toggle button
