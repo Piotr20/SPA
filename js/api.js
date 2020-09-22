@@ -81,7 +81,7 @@
 
  });
 
- //Peter's code
+ //Place from which whole fun is beginning
  function popupFunction(event) {
       popup.style.top = 'calc(100vh - 100px - 40vh)';
       let title = document.querySelector('.fetch-title');
