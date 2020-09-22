@@ -50,22 +50,27 @@
            if (live_forecast > 0 && live_forecast < 20) {
                 detailsBG.style.background = "#27d07d";
                 iconBG.style.background = "#27d07d";
+                document.getElementById('how-crowded').innerHTML = 'This place is not crowded';
            }
            if (live_forecast >= 20 && live_forecast < 40) {
                 detailsBG.style.background = "#95db76";
                 iconBG.style.background = "#95db76";
+                document.getElementById('how-crowded').innerHTML = 'This place is a bit crowded';
            }
            if (live_forecast >= 40 && live_forecast < 60) {
                 detailsBG.style.background = "#fbe570";
                 iconBG.style.background = "#fbe570";
+                document.getElementById('how-crowded').innerHTML = 'This place is medium crowded';
            }
            if (live_forecast >= 60 && live_forecast < 80) {
                 detailsBG.style.background = "#fd9964";
                 iconBG.style.background = "#fd9964";
+                document.getElementById('how-crowded').innerHTML = 'This place is very crowded';
            }
            if (live_forecast >= 80 && live_forecast <= 100) {
                 detailsBG.style.background = "#ff5959";
                 iconBG.style.background = "#ff5959";
+                document.getElementById('how-crowded').innerHTML = 'This place is too crowded';
            }
 
            //change of position of location icon in gradient bar
