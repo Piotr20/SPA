@@ -105,6 +105,33 @@
  //display of details after clicking on location in the map
 
 
+<<<<<<< HEAD
+=======
+ let pin = document.getElementsByClassName('mapboxgl-marker');
+ let pinLength = pin.length;
+ let parent = document.getElementsByClassName('mapboxgl-canvas-container');
+ //let index = parent + ':nth-child(' + i + ')';
+ let popup = document.getElementById("details-going-up");
+
+
+ let popupFunction = function () {
+      popup.style.top = 'calc(100vh - 100px - 40vh)';
+
+ };
+ let popupGone = function () {
+      popup.style.top = '100vh';
+ };
+
+ for (var i = 0; i < pinLength; i++) {
+      console.log(i);
+      pin[i].addEventListener('click', popupFunction, false);
+
+ }
+
+ pin[i].addEventListener('blur', popupGone, false);
+
+
+>>>>>>> 46cf540ce6fc94216637f9d0dac4f6def2d6e16a
 
  //source of live forecast api
  var settings = {
