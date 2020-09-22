@@ -13,8 +13,6 @@
     margin: 0 0 30vw;
 }
 
-#favourites.page {}
-
 .category {
     font-family: "Century Gothic";
     font-weight: normal;
@@ -43,19 +41,19 @@
 }
 
 .place {
-    font-size: 30px;
-    width: 45vw;
+    font-size: 28px;
+    width: 71vw;
     margin: auto 0;
 }
 
 .fav_wrapper {
-    padding: 1vh 2vw;
+    padding: 1vh 0 1vh 7vw;
 }
 
 .yellow {
     display: flex;
     flex-direction: column;
-    margin: auto 17vw auto 7vw;
+    margin: auto 0;
     padding: 0 2vw;
     border-left: 15px solid #FBBE4B;
     height: 100%;
@@ -64,7 +62,7 @@
 .green {
     display: flex;
     flex-direction: column;
-    margin: auto 17vw auto 7vw;
+    margin: auto 0;
     padding: 0 2vw;
     border-left: 15px solid #27D07D;
     height: 100%;
@@ -73,15 +71,25 @@
 .red {
     display: flex;
     flex-direction: column;
-    margin: auto 17vw auto 7vw;
+    margin: auto 0;
     padding: 0 2vw;
     border-left: 15px solid #FF5959;
     height: 100%;
 }
 
-.fav_img {
-    width: 10 vw;
+.grey {
+    display: flex;
+    flex-direction: column;
     margin: auto 0;
+    padding: 0 2vw;
+    border-left: 15px solid #DEDDD9;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.fav_img {
+    width: 10vw;
+    margin: auto 7vw auto 0;
 }
 
 ul {
@@ -96,7 +104,7 @@ li {
     scrollbar-width: none;
     width: 100%;
     font-family: "Josefin Sans";
-    height: 12vh;
+    height: 14vh;
     outline: 1px solid #DEDDD9;
 }
 
@@ -116,7 +124,7 @@ li button {
 li button:first-of-type {
     flex: 1 0 25%;
     background-color: #DEDDD9;
-    margin: 0 0 0 20vw;
+    margin: 0 0 0 14vw;
 }
 
 li {

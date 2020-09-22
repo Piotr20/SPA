@@ -114,8 +114,8 @@ document.querySelector("ul").addEventListener("click", e => {
     }
 });
 
-const tabContainer = document.querySelectorAll('#fav_container li');
-const cancelIcon = document.querySelectorAll('#fav_container li button:nth-of-type(2)');
+const tabContainer = document.querySelectorAll('.fav_container li');
+const cancelIcon = document.querySelectorAll('.fav_container li button:nth-of-type(2)');
 
 for (let i = 0; i < 4; i++) {
     cancelIcon[i].addEventListener('click', () => {

@@ -160,7 +160,7 @@
           <div id='details-going-up'>
                <div class="place-details-on-map" id='on-map-details'>
                     <div class="icon-bottom-container" id="icon-bg">
-                         <img src="media/details-icons/bar.png" class="icon-details">
+                         <img src="media/details-icons/bar.png" class="icon-details" alt="cocktail">
 
                     </div>
                     <h1 class="title-white fetch-title"></h1>
@@ -242,63 +242,82 @@
      </section> <!-- Favourites page -->
      <section id="favourites" class="page">
           <div class="green-bar">
-               <a href='#' class="arrow-position"></a>
-               <img class="arrow-back" src="media/Icon ionic-ios-arrow-back.png" alt="heart">
-               </a>
+               <a class="arrow-position" href="#" onclick="MyFunction();return false;"><img class="arrow-back"
+                         src="media/Icon ionic-ios-arrow-back.png" alt="arrow"></a>
                <h1 class="bar-logo">SafeToGo</h1>
           </div>
           <h1 class="fav">Favourites</h1>
-          <h2 class="category">Restaurants</h2>
           <!-- Swipe functionality - source: https://codepen.io/jakeave/pen/GRJyxex -->
           <section>
-               <ul id="fav_container">
+               <h2 class="category">Restaurants</h2>
+               <ul class="fav_container">
                     <li>
                          <div class="fav_wrapper">
                               <div class="yellow">
-                                   <h1 class="place">store name</h1>
-                                   <p class="street">street</p>
+                                   <h3 class="place">McDonald's</h3>
+                                   <p class="street">Ringvej Syd 86 8260 Viby J Denmark</p>
                               </div>
                          </div>
                          <img src="media/md-notifications.png" alt="notification bell" class="fav_img">
                          <button><img src="media/md-notifications-off.png" alt="notification bell off"></button>
                          <button><img src="media/md-trash.png" alt="trash"></button>
                     </li>
+               </ul>
+               <h2 class="category">Shops</h2>
+               <ul class="fav_container">
                     <li>
                          <div class="fav_wrapper">
                               <div class="green">
-                                   <h1 class="place">store name</h1>
-                                   <p class="street">street</p>
+                                   <h3 class="place">BAUHAUS Viby</h3>
+                                   <p class="street">Ringvej Syd 102 8260 Viby J Denmark</p>
+                              </div>
+                         </div>
+                         <button><img src="media/md-notifications-off.png" alt="notification bell off"></button>
+                         <button><img src="media/md-trash.png" alt="trash"></button>
+                    </li>
+               </ul>
+               <h2 class="category">Bars</h2>
+               <ul class="fav_container">
+                    <li>
+                         <div class="fav_wrapper">
+                              <div class="grey">
+                                   <h3 class="place">Waxies</h3>
+                                   <p class="street">Frederiksgade 16, 8000 Aarhus C Denmark</p>
                               </div>
                          </div>
                          <button><img src="media/md-notifications.png" alt="notification bell"></button>
                          <button><img src="media/md-trash.png" alt="trash"></button>
                     </li>
-                    <h2 class="category">Shops</h2>
-                    <li>
-                         <div class="fav_wrapper">
-                              <div class="green">
-                                   <h1 class="place">store name</h1>
-                                   <p class="street">street</p>
-                              </div>
-                         </div>
-                         <img src="media/md-notifications.png" alt="notification bell" class="fav_img">
-                         <button><img src="media/md-notifications-off.png" alt="notification bell off"></button>
-                         <button><img src="media/md-trash.png" alt="trash"></button>
-                    </li>
+               </ul>
+               <h2 class="category">Gyms</h2>
+               <ul class="fav_container">
                     <li>
                          <div class="fav_wrapper">
                               <div class="red">
-                                   <h1 class="place">store name</h1>
-                                   <p class="street">street</p>
+                                   <h3 class="place">Fitness World</h3>
+                                   <p class="street">Lykkeholms Allé 106 8260 Viby J Denmark</p>
+                              </div>
+                         </div>
+                         <img src="media/md-notifications.png" alt="notification bell" class="fav_img">
+                         <button><img src="media/md-notifications.png" alt="notification bell"></button>
+                         <button><img src="media/md-trash.png" alt="trash"></button>
+                    </li>
+               </ul>
+               <h2 class="category">Museums</h2>
+               <ul class="fav_container">
+                    <li>
+                         <div class="fav_wrapper">
+                              <div class="yellow">
+                                   <h3 class="place">ARoS Aarhus Art Museum</h3>
+                                   <p class="street">Aros Allé 8000 Aarhus Denmark</p>
                               </div>
                          </div>
                          <button><img src="media/md-notifications.png" alt="notification bell"></button>
                          <button><img src="media/md-trash.png" alt="trash"></button>
                     </li>
-                    <h2 class="category">Bars</h2>
-                    <h2 class="category">Gyms</h2>
-                    <h2 class="category">Museums</h2>
-                    <h2 class="category">Theatres</h2>
+               </ul>
+               <h2 class="category">Theatres</h2>
+               <ul class="fav_container">
                </ul>
           </section>
      </section>
