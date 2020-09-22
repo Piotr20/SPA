@@ -300,3 +300,6 @@
   }
  */
  var pinList = document.querySelectorAll('.mapboxgl-marker');
+ searchBar.addEventListener('click', () => {
+      popup.style.top = '100vh';
+ })
