@@ -17,7 +17,7 @@
  //source of live forecast api
 
  var settings = {
-      "url": "https://besttime.app/api/v1/forecasts?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
+      "url": "https://besttime.app/api/v1/forecasts/live?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
       "data": {
            'api_key_private': 'pri_0bc6ad2618fe4bb0b9092c84f41b3010',
            'venue_name': 'ARoS Aarhus Art Museum',
@@ -45,8 +45,6 @@
            let live_forecast = response.analysis.venue_live_busyness;
            console.log(live_forecast);
 
-
-
            //change of colors in container displaying details of place
 
            if (live_forecast > 0 && live_forecast < 20) {
@@ -68,31 +66,30 @@
            if (live_forecast >= 80 && live_forecast <= 100) {
                 detailsBG.style.background = "#ff5959";
                 iconBG.style.background = "#ff5959";
-           } else {
-                detailsBG.style.background = "#555555";
-                iconBG.style.background = "#555555";
-                locationIcon.style.opacity = '0';
+           }
 
-
-           };
            //change of position of location icon in gradient bar
            locationIcon.style.marginLeft = "calc(" + live_forecast + "vw / 2)";
 
-
-
       }
+
+
  });
 
  //Peter's code
  function popupFunction(event) {
       popup.style.top = 'calc(100vh - 100px - 40vh)';
       let title = document.querySelector('.fetch-title');
+      let title2 = document.querySelector('.fetch-title2');
       let subtitle = document.querySelector('.fetch-subtitle');
+      let subtitle2 = document.querySelector('.fetch-subtitle2');
       let pin = event.currentTarget;
 
       //after click get proper data
       title.innerHTML = pin.placeData.venue_name;
+      title2.innerHTML = pin.placeData.venue_name;
       subtitle.innerHTML = pin.placeData.venue_address;
+      subtitle2.innerHTML = pin.placeData.venue_address;
       var settings = {
            "url": "https://besttime.app/api/v1/forecasts/live?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
 
