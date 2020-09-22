@@ -95,6 +95,27 @@
       title2.innerHTML = pin.placeData.venue_name;
       subtitle.innerHTML = pin.placeData.venue_address;
       subtitle2.innerHTML = pin.placeData.venue_address;
+
+      if (pin.placeData.category == 'museum') {
+           document.querySelector('.icon-details').src = 'media/details-icons/museum.png';
+      }
+      if (pin.placeData.category == 'bar') {
+           document.querySelector('.icon-details').src = 'media/details-icons/bar.png';
+      }
+      if (pin.placeData.category == 'gym') {
+           document.querySelector('.icon-details').src = 'media/details-icons/gym.png';
+      }
+      if (pin.placeData.category == 'restaurant') {
+           document.querySelector('.icon-details').src = 'media/details-icons/restaurant.png';
+      }
+      if (pin.placeData.category == 'shop') {
+           document.querySelector('.icon-details').src = 'media/details-icons/shop.png';
+      }
+      if (pin.placeData.category == 'theatre') {
+           document.querySelector('.icon-details').src = 'media/details-icons/theatre.png';
+      }
+
+
       var settings = {
            "url": "https://besttime.app/api/v1/forecasts/live?api_key_private=pri_0bc6ad2618fe4bb0b9092c84f41b3010&venue_name=ARoS Aarhus Art Museum&venue_address=Aros Allé 2 8000 Aarhus Denmark ",
 

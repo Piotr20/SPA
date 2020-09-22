@@ -113,3 +113,12 @@ document.querySelector("ul").addEventListener("click", e => {
         li.remove();
     }
 });
+
+const tabContainer = document.querySelectorAll('#fav_container li');
+const cancelIcon = document.querySelectorAll('#fav_container li button:nth-of-type(2)');
+
+for (let i = 0; i < 4; i++) {
+    cancelIcon[i].addEventListener('click', () => {
+        tabContainer[i].style.display = 'none';
+    })
+}
