@@ -274,13 +274,14 @@
       }
 
  });
-
+ let _places = [];
  async function fetchVenues() {
       let url = `JSON/placelist.json`;
       let response = await fetch(url); // fetch and wait the response
       let data = await response.json(); // read response body and wait for parsing the JSON
-      let places = data.places;
-      appendPlaces(places);
+      _places = data.places;
+      let coords = _places.coords;
+      appendPlaces(_places);
  }
  fetchVenues();
 
@@ -292,7 +293,7 @@
 
            htmlTemplate += /*html*/
                 `
-         <li> 
+         <li onclick = "showPlace('${place.vanue_name}')"> 
           <h3>${name}</h3>
            <p> ${adress}</p>
          </li>
@@ -301,6 +302,15 @@
       document.querySelector(".venue_container").innerHTML = htmlTemplate;
  }
 
+ function showPlace(name) {
+      console.log(name);
+      let placeToShow = getPlace(name);
+      console.log(placeToShow);
+ }
+
+ function getPlace(name) {
+      return _places.find(place => place.venue_name === name);
+ }
  //  function goToPins(places, pinList, map, searchContainer) {
  //       for (let i = 0; i < 23; i++) {
  //            places[i].addEventListener("click", () => {
@@ -316,7 +326,7 @@
  function search(value) {
       console.log(value);
       let filteredPlaces = [];
-      for (let place of places) {
+      for (let place of _places) {
            let name = place.venue_name.toLowerCase();
            if (name.includes(value.toLowerCase())) {
                 filteredPlaces.push(place);
