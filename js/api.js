@@ -372,27 +372,3 @@
   }
  */
  var pinList = document.querySelectorAll('.mapboxgl-marker');
-
- let _favPlaces = [];
-
- function appendFavPlaces() {
-      let html = "";
-      for (const place of _favPlaces) {
-           console.log(place);
-           html += `
-           <li>
-          <h1>${name}</h1>
-          <p>${adress}</p>
-          </li>
-          `;
-      }
-      document.querySelector("#fav-movie-container").innerHTML = html;
- }
-
- function addToFavourites(placeId) {
-      let favPlace = _places.find(place => place.id === placeId);
-      if (toggleBG2.style.background = "#27d07d");
-      _favPlaces.push(favPlace);
-      appendPlaces(_places);
-      appendFavPlaces();
- }
