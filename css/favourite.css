@@ -17,17 +17,19 @@
     font-family: "Century Gothic";
     font-weight: normal;
     font-size: 19px;
-    text-align: left;
+    text-align: center;
     background-color: #F9F8F3;
     color: #212322;
     opacity: 1;
     justify-content: space-around;
-    margin: 1vh 10vw 0;
+    margin: 3vh 10vw 2vh;
     height: 5vh;
+    width: 35vw;
     border: none;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 2px -2px #DEDDD9;
 }
 
 /* Swipe functionality - source: https://codepen.io/jakeave/pen/GRJyxex */
@@ -93,8 +95,7 @@ li {
     width: 100%;
     font-family: "Josefin Sans";
     height: 12vh;
-    margin: 2vh 0;
-    box-shadow: 0px 3px 10px #DEDDD9;
+    outline: 1px solid #DEDDD9;
 }
 
 li::-webkit-scrollbar {
