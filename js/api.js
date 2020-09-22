@@ -105,33 +105,6 @@
  //display of details after clicking on location in the map
 
 
- let pin = document.getElementsByClassName('mapboxgl-marker');
- let pinLength = pin.length;
- let popup = document.getElementById("details-going-up");
-
-
-
-
-
-
-
-
-
-
- let popupFunction = function () {
-      popup.style.top = 'calc(100vh - 100px - 40vh)';
- };
- let popupGone = function () {
-      popup.style.top = '100vh';
- };
- for (var i = 0; i < pinLength; i++) {
-      pin[i].addEventListener('click', popupFunction, false);
- }
- /*
-  for (var i = 0; i < pinLength; i++) {
-       pin[i].addEventListener('blur', popupGone, false); 
-  }
- */
 
  //source of live forecast api
  var settings = {
@@ -282,7 +255,6 @@
       let data = await response.json(); // read response body and wait for parsing the JSON
       _places = data.places;
       appendPlaces(_places);
-      appendMarkers();
  }
  fetchVenues();
 
@@ -294,6 +266,7 @@
       for (let place of places) {
            let name = place.venue_name;
            let adress = place.venue_address;
+           popupFunction(name, adress);
 
            htmlTemplate += /*html*/
                 `
@@ -309,7 +282,7 @@
  function showPlace(name) {
       console.log(name);
       let placeToShow = getPlace(name);
-      // do what you want to do with "placeToShow" 😊
+
       hideSearch();
       map.flyTo({
            center: placeToShow.coords,
@@ -355,4 +328,45 @@
  document.querySelector(".mapboxgl-ctrl-logo").style.display = 'none';
 
 
+ let pin = document.getElementsByClassName('mapboxgl-marker');
+ let pinLength = pin.length;
+ let popup = document.getElementById("details-going-up");
+
+
+
+
+
+ //  function getPlace(name) {
+ //      return _places.find(place => place.venue_name === name);
+ // }
+
  var pinList = document.querySelectorAll('.mapboxgl-marker');
+
+
+
+ function popupFunction(name, adress) {
+      popup.style.top = 'calc(100vh - 100px - 40vh)';
+      let title = document.querySelector('.fetch-title');
+      let subtitle = document.querySelector('.fetch-subtitle');
+
+      for (let i = 0; i < pinLength; i++) {
+           pinList[i].addEventListener("click", () => {
+                console.log();
+
+                title.innerHTML = name;
+                subtitle.innerHTML = adress
+
+           })
+      }
+ };
+ let popupGone = function () {
+      popup.style.top = '100vh';
+ };
+ for (var i = 0; i < pinLength; i++) {
+      pin[i].addEventListener('click', popupFunction(), false);
+ }
+ /*
+  for (var i = 0; i < pinLength; i++) {
+       pin[i].addEventListener('blur', popupGone, false); 
+  }
+ */
