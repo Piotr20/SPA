@@ -258,7 +258,7 @@
                 filteredPlaces.push(place);
            }
       }
-
+      
       console.log(filteredPlaces);
       appendPlaces(filteredPlaces);
  }
